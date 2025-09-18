@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <h1>Catalogue {{ genre is defined ? genre : "" }}</h1>
+    </div>
+    <div class="col-12">
+        <a class="btn btn-secondary mb-2" href="{{ path('app_catalogue') }}">Tous les genres</a>
+        {% for g in genres %}
+            <a class="btn btn-outline-secondary mb-2" href="{{ path('app_catalogue_genre',{genre: g}) }}">{{ g }}</a>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+
+
+        <div class="card-group gap-2">
+            {% if livres is empty %}
+                <div class="alert alert-warning" role="alert">
+                    Aucun livre disponible dans cette catégorie
+                </div>
+            {% endif %}
+            <!-- boucle sur les livres -->
+            {% for l in livres %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ l.titre }} <span class="badge text-bg-{{ l.disponible ? "success" : "danger" }}">{{ l.disponible ? "Disponible" : "Indisponible" }}</span></h5>
+                        <p class="card-text">{{ l.auteur }}</p>
+                        <p class="card-text"><small class="text-body-secondary">{{ l.nombre_exemplaires }} disponibles</small></p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{{ path('app_livre_detail',{id: l.id}) }}"> detail</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

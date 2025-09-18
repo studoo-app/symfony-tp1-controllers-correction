@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Bibliotheque Universitaire{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 mb-2">
+            <h1 class="my-4">Bienvenue sur le site de la bibliotheque universitaire</h1>
+            <p >Ce site vous permet de consulter les ouvrages disponibles <span class="fw-bold">( {{ nbOuvragesDispo }} livres disponibles)</span></p>
+            <div >
+                        <a href="{{ path('app_catalogue') }}" class="btn btn-primary btn-lg">Voir le cataloque</a>
+                {#        <a href="{{ path('app_students_index') }}" class="btn btn-secondary btn-lg">Voir les étudiants</a>#}
+            </div>
+        </div>
+        <div class="col-12">
+            <h3>Horaires d'ouverture</h3>
+            <dl class="row">
+                <dt class="col-sm-3">Lundi</dt>
+                <dd class="col-sm-9">9H - 18h</dd>
+
+                <dt class="col-sm-3">Mardi</dt>
+                <dd class="col-sm-9">9H - 18h</dd>
+
+                <dt class="col-sm-3">Mercredi</dt>
+                <dd class="col-sm-9">9H - 18h</dd>
+
+                <dt class="col-sm-3">Jeudi</dt>
+                <dd class="col-sm-9">9H - 18h</dd>
+
+                <dt class="col-sm-3">Vendredi</dt>
+                <dd class="col-sm-9">9H - 18h</dd>
+
+                <dt class="col-sm-3">Samedi, Dimanche</dt>
+                <dd class="col-sm-9">Fermé</dd>
+            </dl>
+        </div>
+    </div>
+
+{% endblock %}
